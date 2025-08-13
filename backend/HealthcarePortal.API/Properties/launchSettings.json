@@ -1,0 +1,21 @@
+{
+  "profiles": {
+    "HealthcarePortal.API": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:57156;http://localhost:57157"
+    },
+    "Network": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://0.0.0.0:57157"
+      }
+    }
+  }
+}

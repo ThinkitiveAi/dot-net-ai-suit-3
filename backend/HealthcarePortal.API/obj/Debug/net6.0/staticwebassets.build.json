@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "BZE620n5iOtt16grlrYdtS66cTkSQ00dtu0HNgUODX0=",
+  "Source": "HealthcarePortal.API",
+  "BasePath": "_content/HealthcarePortal.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
