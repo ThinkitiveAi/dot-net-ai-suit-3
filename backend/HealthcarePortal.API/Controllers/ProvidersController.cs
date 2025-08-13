@@ -14,13 +14,13 @@ namespace HealthcarePortal.API.Controllers
     {
         private readonly HealthcareDbContext _context;
         private readonly IAuthService _authService;
-        
+
         public ProvidersController(HealthcareDbContext context, IAuthService authService)
         {
             _context = context;
             _authService = authService;
         }
-        
+
         [HttpPost("register")]
         public async Task<ActionResult<AuthResponseDto>> Register(ProviderRegistrationDto dto)
         {
@@ -29,7 +29,7 @@ namespace HealthcarePortal.API.Controllers
             {
                 return BadRequest("Email already exists");
             }
-            
+
             var provider = new Provider
             {
                 FullName = dto.FullName,
@@ -39,12 +39,12 @@ namespace HealthcarePortal.API.Controllers
                 PhoneNumber = dto.PhoneNumber,
                 ClinicAddress = dto.ClinicAddress
             };
-            
+
             _context.Providers.Add(provider);
             await _context.SaveChangesAsync();
-            
+
             var token = _authService.GenerateJwtToken(provider.Id, provider.Email, "Provider", provider.FullName);
-            
+
             return Ok(new AuthResponseDto
             {
                 Token = token,
@@ -54,19 +54,19 @@ namespace HealthcarePortal.API.Controllers
                 Email = provider.Email
             });
         }
-        
+
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponseDto>> Login(LoginDto dto)
         {
             var provider = await _context.Providers.FirstOrDefaultAsync(p => p.Email == dto.Email);
-            
+
             if (provider == null || !_authService.VerifyPassword(dto.Password, provider.PasswordHash))
             {
                 return Unauthorized("Invalid credentials");
             }
-            
+
             var token = _authService.GenerateJwtToken(provider.Id, provider.Email, "Provider", provider.FullName);
-            
+
             return Ok(new AuthResponseDto
             {
                 Token = token,
@@ -76,7 +76,7 @@ namespace HealthcarePortal.API.Controllers
                 Email = provider.Email
             });
         }
-        
+
         [HttpGet]
         [Authorize]
         public async Task<ActionResult<List<ProviderDto>>> GetProviders()
@@ -92,7 +92,7 @@ namespace HealthcarePortal.API.Controllers
                     ClinicAddress = p.ClinicAddress
                 })
                 .ToListAsync();
-            
+
             return Ok(providers);
         }
     }

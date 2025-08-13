@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w/5RXdk+Mt0=",
+  "dgSpecHash": "+Gwg3JMswi4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\LNV-149\\Downloads\\backend\\backend\\HealthcarePortal.API\\HealthcarePortal.API.csproj",
+  "projectFilePath": "C:\\Users\\LNV-149\\Desktop\\backendexercise\\dot-net-ai-suit-3\\backend\\HealthcarePortal.API\\HealthcarePortal.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LNV-149\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\LNV-149\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

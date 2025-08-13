@@ -2820,11 +2820,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LNV-149\\Downloads\\backend\\backend\\HealthcarePortal.API\\HealthcarePortal.API.csproj",
+      "projectUniqueName": "C:\\Users\\LNV-149\\Desktop\\backendexercise\\dot-net-ai-suit-3\\backend\\HealthcarePortal.API\\HealthcarePortal.API.csproj",
       "projectName": "HealthcarePortal.API",
-      "projectPath": "C:\\Users\\LNV-149\\Downloads\\backend\\backend\\HealthcarePortal.API\\HealthcarePortal.API.csproj",
+      "projectPath": "C:\\Users\\LNV-149\\Desktop\\backendexercise\\dot-net-ai-suit-3\\backend\\HealthcarePortal.API\\HealthcarePortal.API.csproj",
       "packagesPath": "C:\\Users\\LNV-149\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LNV-149\\Downloads\\backend\\backend\\HealthcarePortal.API\\obj\\",
+      "outputPath": "C:\\Users\\LNV-149\\Desktop\\backendexercise\\dot-net-ai-suit-3\\backend\\HealthcarePortal.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

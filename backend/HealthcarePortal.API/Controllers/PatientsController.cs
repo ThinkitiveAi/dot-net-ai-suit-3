@@ -14,13 +14,13 @@ namespace HealthcarePortal.API.Controllers
     {
         private readonly HealthcareDbContext _context;
         private readonly IAuthService _authService;
-        
+
         public PatientsController(HealthcareDbContext context, IAuthService authService)
         {
             _context = context;
             _authService = authService;
         }
-        
+
         [HttpPost("register")]
         public async Task<ActionResult<AuthResponseDto>> Register(PatientRegistrationDto dto)
         {
@@ -29,7 +29,7 @@ namespace HealthcarePortal.API.Controllers
             {
                 return BadRequest("Email already exists");
             }
-            
+
             var patient = new Patient
             {
                 FullName = dto.FullName,
@@ -39,12 +39,12 @@ namespace HealthcarePortal.API.Controllers
                 Gender = dto.Gender,
                 PhoneNumber = dto.PhoneNumber
             };
-            
+
             _context.Patients.Add(patient);
             await _context.SaveChangesAsync();
-            
+
             var token = _authService.GenerateJwtToken(patient.Id, patient.Email, "Patient", patient.FullName);
-            
+
             return Ok(new AuthResponseDto
             {
                 Token = token,
@@ -54,19 +54,19 @@ namespace HealthcarePortal.API.Controllers
                 Email = patient.Email
             });
         }
-        
+
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponseDto>> Login(LoginDto dto)
         {
             var patient = await _context.Patients.FirstOrDefaultAsync(p => p.Email == dto.Email);
-            
+
             if (patient == null || !_authService.VerifyPassword(dto.Password, patient.PasswordHash))
             {
                 return Unauthorized("Invalid credentials");
             }
-            
+
             var token = _authService.GenerateJwtToken(patient.Id, patient.Email, "Patient", patient.FullName);
-            
+
             return Ok(new AuthResponseDto
             {
                 Token = token,
@@ -76,7 +76,7 @@ namespace HealthcarePortal.API.Controllers
                 Email = patient.Email
             });
         }
-        
+
         [HttpGet]
         [Authorize]
         public async Task<ActionResult<List<PatientDto>>> GetPatients()
@@ -92,7 +92,7 @@ namespace HealthcarePortal.API.Controllers
                     PhoneNumber = p.PhoneNumber
                 })
                 .ToListAsync();
-            
+
             return Ok(patients);
         }
     }
